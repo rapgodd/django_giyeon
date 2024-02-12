@@ -4,7 +4,7 @@ import os
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    text = models.TextField()
+    content = models.TextField()
     hook_text = models.CharField(max_length=100, blank=True)
 
     head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
