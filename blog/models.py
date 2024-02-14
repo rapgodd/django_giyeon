@@ -7,7 +7,7 @@ class Post(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField()
     hook_text = models.CharField(max_length=100, blank=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, null=True ,on_delete=models.SET_NULL)
 
     head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
     file_upload = models.FileField(upload_to='blog/files/%Y/%m/%d/', blank=True)
