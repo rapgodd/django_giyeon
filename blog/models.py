@@ -22,6 +22,7 @@ class Post(models.Model):
     hook_text = models.CharField(max_length=100, blank=True)
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
+    # Null=True는 DB가 널값을 가져도 된다는 이야기 이고 Blank = True는 폼 양식을 제출할때 폼 값을 가지지 않아도 된다는 말이다.
 
     head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
     file_upload = models.FileField(upload_to='blog/files/%Y/%m/%d/', blank=True)
