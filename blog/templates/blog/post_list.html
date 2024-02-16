@@ -37,6 +37,15 @@
         <p class="card-text">{{ p.content | truncatewords:45 }}</p>
         <!-- 단어가 아니라 글자수로 하고 싶으면 truncatechars -->
 
+        {% if p.tags.exists %}
+        <i class="fas fa-tags"></i>
+        {% for tag in p.tags.iterator %}
+        <a href="{{ tag.get_absolute_url }}"><span class="badge bg-light text-dark">{{ tag }}</span></a>
+        {% endfor %}
+        <br/>
+        <br/>
+        {% endif %}
+
         <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
 
     </div>

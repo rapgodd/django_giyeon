@@ -18,6 +18,16 @@ class Category(models.Model):
     def get_absolute_url(self):
         return f'/blog/category/{self.slug}/'
 
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=50, unique=True, allow_unicode=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return f'/blog/tag/{self.slug}/'
+
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
@@ -25,6 +35,7 @@ class Post(models.Model):
     hook_text = models.CharField(max_length=100, blank=True)
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
+    tags = models.ManyToManyField(Tag, blank=True)
     # Null=True는 DB가 널값을 가져도 된다는 이야기 이고 Blank = True는 폼 양식을 제출할때 폼 값을 가지지 않아도 된다는 말이다.
 
     head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
