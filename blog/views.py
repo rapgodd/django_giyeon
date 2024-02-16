@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post, Category, Tag
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 
 class PostList(ListView):
@@ -54,6 +54,10 @@ def tag_page(request, slug):
             'tag': tag
         }
     )
+
+class PostCreate(CreateView):
+    model = Post
+    fields = ['title', 'hook_text', 'content', 'head_image', 'file_upload', 'category']
 
 
 
