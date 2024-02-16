@@ -132,6 +132,7 @@ class TestView(TestCase):
         soup = BeautifulSoup(response.content, 'html.parser')
         # 2.2. 포스트 목록 페이지와 똑같은 내비게이션 바가 있다.
         self.navbar_test(soup)
+        self.category_card_test(soup)
 
         # 2.3. 첫 번째 포스트의 제목이 웹 브라우저 탭 타이틀에 들어 있다.
         self.assertIn(self.post_001.title, soup.title.text)
@@ -139,10 +140,27 @@ class TestView(TestCase):
         main_area = soup.find('div', id='main-area')
         post_area = main_area.find('div', id='post-area')
         self.assertIn(self.post_001.title, post_area.text)
+        self.assertIn(self.post_001.category.name, post_area.text)
+
         # 2.5. 첫 번째 포스트의 작성자(author)가 포스트 영역에 있다(아직 구현할 수 없음).
         self.assertIn(self.post_001.author.username.upper(), post_area.text)
         # 2.6. 첫 번째 포스트의 내용(content)이 포스트 영역에 있다.
         self.assertIn(self.post_001.content, post_area.text)
+
+    def test_category_page(self):
+        response = self.client.get(self.category_programming.get_absolute_url())
+        self.assertEqual(response.status_code, 200)
+
+        soup = BeautifulSoup(response.content, 'html.parser')
+        self.navbar_test(soup)
+        self.category_card_test(soup)
+
+        main_area = soup.find('div', id='main-area')
+        self.assertIn(self.category_programming.name, main_area.h1.text)
+        self.assertIn(self.category_programming.name, main_area.text)
+        self.assertIn(self.post_001.title, main_area.text)
+        self.assertNotIn(self.post_002.title, main_area.text)
+        self.assertNotIn(self.post_003.title, main_area.text)
 
 
 # Create your tests here.
