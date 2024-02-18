@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
 
+    'markdownx',
+
     'django_extensions',
     'blog',
     'single_pages',
