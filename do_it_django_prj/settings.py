@@ -145,6 +145,26 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+
+# SOCIALACCOUNT_PROVIDERS = {
+#     "google": {
+#         "APP": {
+#             "client_id": os.getenv("1061886372694-scej9a3jo198kn06kcldn8a4tvj8854t.apps.googleusercontent.com"),
+#             "secret": os.getenv("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"),
+#             "key": ""
+#         },
+#         # These are provider-specific settings that can only be
+#         # listed here:
+#         "SCOPE": [
+#             "profile",
+#             "email",
+#         ],
+#         "AUTH_PARAMS": {
+#             "access_type": "online",
+#         }
+#     }
+# }
+
 SITE_ID = 1
 
 ACCOUNT_EMAIL_REQUIRED = True
