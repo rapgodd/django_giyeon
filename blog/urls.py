@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     #path('', views.index), #FBV를 할때에는 이렇게 적는다.
+    path('search/<str:q>/', views.PostSearch.as_view()),
     path('update_post/<int:pk>/', views.PostUpdate.as_view()),
     path('create_post/', views.PostCreate.as_view()),
     path('tag/<str:slug>/', views.tag_page),
