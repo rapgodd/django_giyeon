@@ -1,19 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>개발자 최기연입니다.</title>
+    <title>최기연 포트폴리오</title>
+    <link href="{% static 'blog/bootstrap/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/726bbd6862.js" crossorigin="anonymous"></script>
+
+    <link href="{% static 'single_pages/css/about_me.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <nav>
-        <a href="/blog/">Blog</a>
-        <a href="/about_me/">About me</a>
-    </nav>
+{% include 'blog/navbar.html' %}
 
-    <h1>안녕하세요. 최기연 입니다.</h1>
-    <h2>이력</h2>
-    <h2>Portfolio</h2>
-    <h3>아직 공사중입니다.</h3>
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="mt-lg-3">안녕하세요 최기연입니다</h1>
+                <br/>
+                <div class="pl-3">
+                    <div>
+                        저는 컴퓨터와 음악을 좋아합니다.
+                        <br/>
+                        평소에는 학교를 다니며 공부를 하고 </br>
+                        쉬는 시간에는 음악을 듣거나 운동을 합니다.
+                    </div>
+                </div>
+                </br>
+                </br>
+                <div class="b mt-5">
+                    <div>
+                        <ul>
+                            </br>
+                            <li>WORK EXPERIENCE</li>
+                            <ul>
+                                <li>KJC AMERICA (2022-07-04 - 2022-07-29)</li>
+                            </ul>
 
+                            <li>EDUCATION</li>
+                            <ul>
+                                <li>경영정보학과,충북대학교 (2020.03~)</li>
+                                </br>
+                                </br>
+                                </br>
+
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+                <img class="img-fluid mb-5 mt-2" src="{% static 'single_pages/images/123.png' %}">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-light margin-for-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>PORTFOLIO</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card" data-toggle="modal" data-target="#pycon2017">
+                    <img class="card-img-top img-fluid" src="{% static 'single_pages/images/3.png' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">KJC AMERICA 인턴</h5>
+                        <p>미국 LA에 위치한 KJC AMERICA 회사에서 데이터 분석 인턴을 하였습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card" data-toggle="modal" data-target="#inflearn_django2">
+                    <img class="card-img-top img-fluid" src="{% static 'single_pages/images/1.png' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">인프런 파이썬 강의 수료</h5>
+                        <p>파이썬 웹개발에 대한 인프런 동영상 강의를 수료하였습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card" data-toggle="modal" data-target="#automation_python">
+                    <img class="card-img-top img-fluid" src="{% static 'single_pages/images/2.png' %}">
+                    <div class="card-body">
+                        <h5 class="card-title">코멘토 백앤드(Django) 직무부트캠프</h5>
+                        <p>코멘토 파이썬 백앤드 직무부트캠프 체험을 하였습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="pycon2017" tabindex="-1" aria-labelledby="pycon2017ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pycon2017ModalLabel">KJC AMERICA 인턴</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <img class="img-fluid" src="{% static 'single_pages/images/IMG_7848.PNG' %}">
+                    </div>
+                    <div class="col-lg-5">
+                        <p>
+                            미국 Los Angeles에 위치한 KJC AMERICA 회사에서 인턴을 하였을때 Microsoft Access를 활용해 데이터 분석 보조를 하였습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="inflearn_django2" tabindex="-1" aria-labelledby="inflearnDjango2ModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="inflearnDjango2ModalLabel">인프런 파이썬 강의 수료</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <img class="img-fluid" src="{% static 'single_pages/images/3311.png' %}">
+                    </div>
+                    <div class="col-lg-5">
+                        <p>
+                            인프런에서 장고를 이용해 웹사이트 만드는 방법을 안내하는 강의를 수료하였습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="automation_python" tabindex="-1" aria-labelledby="pythonAutomationModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pythonAutomationModalLabel">코멘토 직무부트캠프</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <img class="img-fluid" src="{% static 'single_pages/images/1234.png' %}">
+                    </div>
+                    <div class="col-lg-5">
+                        <p>
+                            코멘토에서 장고를 이용한 백앤드 직무부트캠프를 하였습니다.</br></br>이 과정을 통해 백앤드 개발자가 실무에서 어떤 일을 하는지 자세히 알 수 있었고
+                            멘토님에게 여러 노하우를 얻을 수 있었던 좋은 경험을 하였습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fixed-bottom">
+    {% include 'blog/footer.html' %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
 </body>
 </html>

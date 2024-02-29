@@ -14,9 +14,12 @@
 <section>
     <div class="container">
         <div class="row justify-content-between mt-4">
-            <div class="col-lg-6 text-light">
-                <h2>최기연의 블로그 메인페이지 입니다. </h2>
-                <p>저의 함께 공부하면서 성장해봐요.</p>
+            <div class="col-lg-6 text-dark card mb-lg-5 pt-lg-5 mt-lg-5">
+                <div class="card-body">
+                    <h3>최기연의 블로그 메인페이지 입니다. </h3>
+                    </br>
+                    <p>저와 함께 공부하면서 성장해 봐요.</br> 저의 공부기록들이 여러분들에게 작은 도움이라도 되었으면 </br>좋겠습니다:)</p>
+                </div>
             </div>
             <div class="col-lg-5">
                 <h2 class="text-light">Blog - Recent posts</h2>
@@ -27,7 +30,8 @@
                         <h6><a href="{{ post.get_absolute_url }}" class="text-decoration-none text-dark">{{ post.title }}</a></h6>
 
                         <span class="badge badge-pill badge-light float-right">
-                                <img class="mr-1 rounded-circle" width="20px" src="{{ post.get_avatar_url }}" alt="{{ post.author }}">
+                                <img class="mr-1 rounded-circle" width="20px" src="{{ post.get_avatar_url }}"
+                                     alt="{{ post.author }}">
                                 {{ post.author.username }}
                                 &nbsp;&nbsp;
                                 {{ post.created_at }}
