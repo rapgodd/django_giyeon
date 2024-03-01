@@ -19,13 +19,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)0*&32o!alw2+wek^lude!673*z9_yx9ya@r+xwhbwf+!nd-4h'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-)0*&32o!alw2+wek^lude!673*z9_yx9ya@r+xwhbwf+!nd-4h')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get('DEBUG', 1))
 
-ALLOWED_HOSTS = []
-
+if os.environ.get('DJANGO_ALLOWED_HOSTS'):
+    ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS').split(' ')
+else:
+    ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,7 +45,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
     'crispy_forms',
-    'crispy_bootstrap4',
 
     'markdownx',
 
@@ -60,7 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'do_it_django_prj.urls'
@@ -145,25 +146,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-#
-# SOCIALACCOUNT_PROVIDERS = {
-#     "google": {
-#         "APP": {
-#             "client_id": os.getenv("1061886372694-scej9a3jo198kn06kcldn8a4tvj8854t.apps.googleusercontent.com"),
-#             "secret": os.getenv("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"),
-#             "key": ""
-#         },
-#         # These are provider-specific settings that can only be
-#         # listed here:
-#         "SCOPE": [
-#             "profile",
-#             "email",
-#         ],
-#         "AUTH_PARAMS": {
-#             "access_type": "online",
-#         }
-#     }
-# }
+
 
 SITE_ID = 1
 
@@ -171,4 +154,6 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 LOGIN_REDIRECT_URL = '/blog/'
 SOCIALACCOUNT_LOGIN_ON_GET=True
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
