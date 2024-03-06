@@ -158,7 +158,7 @@ migrations/
 
 _media/
 
-.env.dev
+.env.prod
 .env.prod.db
 
 # PyCharm
